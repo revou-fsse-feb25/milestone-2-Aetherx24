@@ -7,7 +7,7 @@ function createFloatingNumbers() {
         number.className = 'number';
         number.style.left = `${Math.random() * 100}%`;
         number.style.animationDelay = `${Math.random() * 15}s`;
-        number.textContent = Math.floor(Math.random() * 100);
+        number.textContent = Math.floor(Math.random() * 20) + 1;
         container.appendChild(number);
     }
 }
