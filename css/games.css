@@ -14,6 +14,8 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .game-card {
@@ -68,7 +70,17 @@
     transform: translateY(-2px);
 }
 
+@media (max-width: 1024px) {
+    .games-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
 @media (max-width: 768px) {
+    .games-container {
+        padding: 1rem;
+    }
+
     .games-container {
         padding: 1rem;
     }
