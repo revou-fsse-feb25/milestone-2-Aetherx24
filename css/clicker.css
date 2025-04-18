@@ -85,3 +85,14 @@
         height: 150px;
     }
 }
+
+.click-area {
+    touch-action: manipulation;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+button {
+    touch-action: manipulation;
+}
