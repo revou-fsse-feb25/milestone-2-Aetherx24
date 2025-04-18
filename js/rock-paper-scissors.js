@@ -72,6 +72,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function playRound(playerMove) {
+
+        // check if we've reached the game limit
+        if (scores.player + scores.computer >= scores.maxGames) {
+            return; //wont allow more moves after series is complete
+        }
         const moves = ['rock', 'paper', 'scissors'];
         const computerMove = moves[Math.floor(Math.random() * moves.length)];
 
@@ -82,6 +87,13 @@ document.addEventListener('DOMContentLoaded', () => {
         updateScore(result);
         updateStats(result);
         displayResult(result, playerMove, computerMove);
+
+        // check if this was the final game
+        if (scores.player + scores.computer >= scores.maxGames) {
+            const winner = scores.player > scores.computer ? 'Player' : 'Computer';
+            resultText.textContent = `Series Over! ${winner} wins the series!`;
+            disableChoices(true);
+        }
     }
 
     function getWinner(player, computer) {
@@ -133,6 +145,19 @@ document.addEventListener('DOMContentLoaded', () => {
                                 'var(--text-color)';
     }
 
+    function resetGame() {
+        scores.player = 0;
+        scores.computer = 0;
+        playerScore.textContent = '0';
+        computerScore.textContent = '0';
+        playerChoice.textContent = '❔';
+        computerChoice.textContent = '❔';
+        resultText.textContent = 'Choose your move!';
+        resultText.style.color = 'var(--secondary-color)';
+        gamesLeft.textContent = scores.maxGames;
+        disableChoices(false);
+    }
+
     resetBtn.addEventListener('click', () => {
         scores.player = 0;
         scores.computer = 0;
@@ -148,17 +173,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('win-streak').textContent = winStreak;
         disableChoices(false);
 
-        function resetGame() {
-            scores.player = 0;
-            scores.computer = 0;
-            playerScore.textContent = '0';
-            computerScore.textContent = '0';
-            playerChoice.textContent = '❔';
-            computerChoice.textContent = '❔';
-            resultText.textContent = 'Choose your move!';
-            resultText.style.color = 'var(--secondary-color)';
-            gamesLeft.textContent = scores.maxGames;
-            disableChoices(false);
-        }
+        
     });
 });
