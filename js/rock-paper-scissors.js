@@ -6,11 +6,36 @@ document.addEventListener('DOMContentLoaded', () => {
     const playerChoice = document.getElementById('player-choice');
     const computerChoice = document.getElementById('computer-choice');
     const resetBtn = document.getElementById('reset-btn');
+    const gamesLimit = document.getElementById('game-limit');
+    const gamesLeft = document.getElementById('games-left');
+
+    // Add score tracking variables
+    let totalGames = parseInt(localStorage.getItem('rpsGames')) || 0;
+    let totalWins = parseInt(localStorage.getItem('rpsWins')) || 0;
+    let winStreak = parseInt(localStorage.getItem('rpsStreak')) || 0;
+    let bestStreak = parseInt(localStorage.getItem('rpsBestStreak')) || 0;
+
+    // Add score display
+    const scoreDisplay = document.createElement('div');
+    scoreDisplay.className = 'score-display';
+    scoreDisplay.innerHTML = `
+        <p>Total Games: <span id="total-games">${totalGames}</span></p>
+        <p>Total Wins: <span id="total-wins">${totalWins}</span></p>
+        <p>Current Streak: <span id="win-streak">${winStreak}</span></p>
+        <p>Best Streak: <span id="best-streak">${bestStreak}</span></p>
+    `;
+    document.querySelector('.score-board').appendChild(scoreDisplay);
 
     let scores = {
         player: 0,
-        computer: 0
+        computer: 0,
+        maxGames: 3
     };
+
+    gamesLimit.addEventListener('change', () => {
+        scores.maxGames = parseInt(gamesLimit.value);
+        resetGame();
+    });
 
     const emojis = {
         rock: '✊',
@@ -25,6 +50,27 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    function updateStats(result) {
+        totalGames++;
+        if (result === 'win') {
+            totalWins++;
+            winStreak++;
+            bestStreak = Math.max(bestStreak, winStreak);
+        } else if (result === 'lose') {
+            winStreak = 0;
+        }
+
+        localStorage.setItem('rpsGames', totalGames);
+        localStorage.setItem('rpsWins', totalWins);
+        localStorage.setItem('rpsStreak', winStreak);
+        localStorage.setItem('rpsBestStreak', bestStreak);
+
+        document.getElementById('total-games').textContent = totalGames;
+        document.getElementById('total-wins').textContent = totalWins;
+        document.getElementById('win-streak').textContent = winStreak;
+        document.getElementById('best-streak').textContent = bestStreak;
+    }
+
     function playRound(playerMove) {
         const moves = ['rock', 'paper', 'scissors'];
         const computerMove = moves[Math.floor(Math.random() * moves.length)];
@@ -34,6 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const result = getWinner(playerMove, computerMove);
         updateScore(result);
+        updateStats(result);
         displayResult(result, playerMove, computerMove);
     }
 
@@ -57,6 +104,20 @@ document.addEventListener('DOMContentLoaded', () => {
         
         playerScore.textContent = scores.player;
         computerScore.textContent = scores.computer;
+        gamesLeft.textContent = scores.maxGames - (scores.player + scores.computer);
+
+        if(scores.player + scores.computer >= scores.maxGames) {
+            const winner = scores.player > scores.computer ? 'Player' : 'Computer';
+            resultText.textContent = `${winner} wins the series!`;
+            disableChoices(true);
+        }
+    }
+
+    function disableChoices(disabled) {
+        choices.forEach(choice => {
+            choice.disabled = disabled;
+            choice.style.opacity = disabled ? '0.5' : '1';
+        });
     }
 
     function displayResult(result, playerMove, computerMove) {
@@ -81,5 +142,23 @@ document.addEventListener('DOMContentLoaded', () => {
         computerChoice.textContent = '❔';
         resultText.textContent = 'Choose your move!';
         resultText.style.color = 'var(--secondary-color)';
+        winStreak = 0;
+        gamesLeft.textContent = scores.maxGames;
+        localStorage.setItem('rpsStreak', winStreak);
+        document.getElementById('win-streak').textContent = winStreak;
+        disableChoices(false);
+
+        function resetGame() {
+            scores.player = 0;
+            scores.computer = 0;
+            playerScore.textContent = '0';
+            computerScore.textContent = '0';
+            playerChoice.textContent = '❔';
+            computerChoice.textContent = '❔';
+            resultText.textContent = 'Choose your move!';
+            resultText.style.color = 'var(--secondary-color)';
+            gamesLeft.textContent = scores.maxGames;
+            disableChoices(false);
+        }
     });
 });

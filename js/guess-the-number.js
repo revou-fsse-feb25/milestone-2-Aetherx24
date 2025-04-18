@@ -22,6 +22,38 @@ document.addEventListener('DOMContentLoaded', () => {
     
     let secretNumber;
     let attempts;
+    let highScore = localStorage.getItem('guessNumberHighScore') || 0;
+    let gamesWon = parseInt(localStorage.getItem('guessNumberWins')) || 0;
+    let gamesPlayed = parseInt(localStorage.getItem('guessNumberGames')) || 0;
+
+    // Score display to HTML
+    const scoreDisplay = document.createElement('div');
+    scoreDisplay.className = 'score-display';
+    scoreDisplay.innerHTML = `
+        <p>High Score: <span id="high-score">${highScore}</span></p>
+        <p>Games Won: <span id="games-won">${gamesWon}</span></p>
+        <p>Games Played: <span id="games-played">${gamesPlayed}</span></p>
+    `;
+    document.querySelector('.game-box').appendChild(scoreDisplay);
+
+    function updateScores(won) {
+        gamesPlayed++;
+        if (won) {
+            gamesWon++;
+            const currentScore = attempts + 1; // More attempts left = higher score
+            if (currentScore > highScore) {
+                highScore = currentScore;
+            }
+        }
+        
+        localStorage.setItem('guessNumberHighScore', highScore);
+        localStorage.setItem('guessNumberWins', gamesWon);
+        localStorage.setItem('guessNumberGames', gamesPlayed);
+        
+        document.getElementById('high-score').textContent = highScore;
+        document.getElementById('games-won').textContent = gamesWon;
+        document.getElementById('games-played').textContent = gamesPlayed;
+    }
 
     function initializeGame() {
         secretNumber = Math.floor(Math.random() * 20) + 1;
@@ -39,6 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
         guessBtn.disabled = true
         restartBtn.classList.remove('hidden');
         message.style.color = won ? 'var(--secondary-color)' : '#ff4444';
+        updateScores(won);
     }
 
     guessBtn.addEventListener('click', () => {

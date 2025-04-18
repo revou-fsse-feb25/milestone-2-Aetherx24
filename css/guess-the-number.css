@@ -95,3 +95,15 @@ body {
         opacity: 0;
     }
  }
+
+ .score-display {
+    margin: 1rem 0;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 5px;
+}
+
+.score-display p {
+    margin: 0.5rem 0;
+    color: var(--secondary-color);
+}

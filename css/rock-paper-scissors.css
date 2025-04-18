@@ -104,6 +104,50 @@
     transform: translateY(-2px);
 }
 
+.score-display {
+    margin: 1rem 0;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 5px;
+}
+
+.score-display p {
+    margin: 0.5rem 0;
+    color: var(--secondary-color);
+}
+
+.game-settings {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 5px;
+}
+
+.game-settings label {
+    color: var(--text-color);
+    margin-right: 0.5rem;
+    font-size: 1.1rem;
+}
+
+#game-limit {
+    padding: 0.5rem;
+    margin-left: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+    border: 1px solid var(--secondary-color);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#game-limit:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+#game-limit option {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
 @media (max-width: 600px) {
     .choices {
         flex-direction: column;
@@ -116,5 +160,66 @@
     
     .vs {
         margin: 1rem 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .game-container {
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    .score {
+        flex-direction: row;  
+        gap: 1rem;
+        font-size: 1rem;     
+    }
+
+    .score-display p {
+        font-size: 0.9rem;   
+        margin: 0.3rem 0;
+    }
+
+    .choice {
+        font-size: 1.8rem;   
+        width: 70px;         
+        height: 70px;
+    }
+
+    .player-hand, .computer-hand {
+        font-size: 2rem;     
+    }
+}
+
+@media (max-width: 480px) {
+    .game-container h1 {
+        font-size: 1.3rem;   
+        margin-bottom: 1rem;
+    }
+
+    .score {
+        font-size: 0.9rem;   
+    }
+
+    .vs {
+        margin: 0.3rem 0;    
+        font-size: 1rem;     
+    }
+
+    .choice {
+        font-size: 1.5rem;   
+        width: 60px;         
+        height: 60px;
+        margin: 0.5rem 0;    
+    }
+
+    #result-text {
+        font-size: 1rem;     
+    }
+
+    .player-hand span, .computer-hand span {
+        min-width: 60px;     
+        min-height: 60px;
+        padding: 0.5rem;    
     }
 }
