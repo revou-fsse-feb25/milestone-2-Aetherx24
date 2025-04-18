@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let attempts;
 
     function initializeGame() {
-        secretNumber = Math.floor(Math.random() * 100) + 1;
+        secretNumber = Math.floor(Math.random() * 20) + 1;
         attempts = 5;
         attemptsLeft.textContent = attempts;
         message.textContent = '';
@@ -44,8 +44,8 @@ document.addEventListener('DOMContentLoaded', () => {
     guessBtn.addEventListener('click', () => {
         const userGuess = parseInt(guessInput.value);
 
-        if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
-            message.textContent = 'Please enter a valid number between 1 and 100';
+        if (isNaN(userGuess) || userGuess < 1 || userGuess > 20) {
+            message.textContent = 'Please enter a valid number between 1 and 20';
             message.style.color = '#ff4444';
             return;
         }
