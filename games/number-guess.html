@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game - RevoFun</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/number-guess.css">
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="logo">RevoFun</div>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="number-guess.html">Number Guessing Game</a></li>
+            <li><a href="rock-paper-scissors.html">Rock, Paper, Scissors Game</a></li>
+            <li><a href="clicker.html">Clicker Game</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="game-container">
+        <h1> Number Guessing Game</h1>
+        <div class="game-box">
+            <p id="game-info"> Guess a number between 1 and 100. You have 5 attempts!</p>
+            <div id="attempts">Attempts remaining: <span id="attempts-left">5</span></div>
+            <input type="number" id="guess-input" min="1" max="100" placeholder="Enter your guess">
+            <button id="guess-btn">Guess</button>
+            <p id="message"></p>
+            <button id="restart-btn" class="hidden">Retry</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 RevoFun. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/number-guess.js"></script>
+
+</body>
+</html>

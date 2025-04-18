@@ -1,77 +1,125 @@
-/* CSS specifically for Contact Page */
-
 .contact-section {
-    padding: 5rem 0;
-    background: white;
-}
-
-.contact-content {
-    display: grid;
-    gap: 3rem;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0 1rem;
-}
-
-/* Contact info style */
-.contact-info {
+    max-width: 800px;
+    margin: 2rem auto;
     padding: 2rem;
 }
 
-.contact-info h3 {
-    color: aliceblue;
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 10px;
 }
 
-/* form styles */
+.section-title {
+    color: var(--secondary-color);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.contact-info {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.contact-info p {
+    color: var(--text-color);
+    font-size: 1.1rem;
+}
 
 .contact-form {
-    padding: 2rem;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 2px 15px grey
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .form-group {
-    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 .form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: grey;
+    color: var(--secondary-color);
+    font-size: 1.1rem;
 }
 
-.form-group input, 
+.form-group input,
 .form-group textarea {
-    width: 100%;
     padding: 0.8rem;
-    border: 1px solid;
+    border: none;
     border-radius: 5px;
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--background-color);
     font-size: 1rem;
-    transition: all 0.3s ease;
-}
-
-/* add hover effect for form input  */
-.form-group input:hover,
-.form-group textarea:hover {
-    border-color: #bbb;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
-    outline: none;
-    border-color: aquamarine;
-    box-shadow: 0 0 0 2px grey;
+    outline: 2px solid var(--secondary-color);
 }
 
-/* Style for form submission button  */
-
-.contact-form .primary-btn {
-    width: 100%;
-    cursor: pointer;
+.submit-btn {
+    padding: 1rem 2rem;
+    background-color: var(--secondary-color);
+    color: var(--background-color);
     border: none;
-    margin: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    align-self: flex-start;
+}
+
+.submit-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .contact-section {
+        padding: 1rem;
+    }
+    
+    .container {
+        padding: 1rem;
+    }
+    
+    .submit-btn {
+        width: 100%;
+    }
+}
+
+.error-message {
+    background-color: rgba(225,68,68,0.1);
+    color: #ff4444;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.success-message {
+    background-color: rgba(3,218,198,0.1);
+    color: var(--secondary-color);
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.error-message {
+    background-color: rgba(255,69,69,0.1);
+    color: #ff4444;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.success-message {
+    background-color: rgba(3,218,198,0.1);
+    color: var(--secondary-color);
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
 }

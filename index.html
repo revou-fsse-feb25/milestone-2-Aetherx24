@@ -4,17 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RevoFun</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
     <!-- Navigation -->
-     <nav class="navbar">
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="games.html">Games</a>
-            <a href="contact.html">Contact</a>
-        </div>
+     <nav class="main-nav">
+        <div class="logo">RevoFun</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="games.html">Games</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
     </nav>
+
+    <header class="hero">
+        <h1>Welcome to RevoFun</h1>
+        <p>Your destination for casual gaming experience</p>
+    </header>
+
+    <main class="game-grid">
+        <div class="game-card">
+            <h2>Number Guessing</h2>
+            <p>Test your intuition! Can you guess the secret number?</p>
+            <a href="games/number-guess.html" class="play-btn">Play Now</a>
+        </div>
+        <div class="game-card">
+            <h2>Rock Paper Scissors</h2>
+            <p>Challenge the computre in this classic game!</p>
+            <a href="games/rock-paper-scissors.html" class="play-btn">Play Now</a>
+        </div>
+        <div class="game-card">
+            <h2>Clicker Game</h2>
+            <p>How fast can you click? Beat the clock!</p>
+            <a href="games/clicker-game.html" class="play-btn">Play Now</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 RevoFun. All rights reserved.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+
 </body>
 </html>

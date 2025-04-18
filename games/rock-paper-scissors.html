@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Play Rock Paper Scissors at RevoFun - Challenge the computer in this classic game!">
+    <title>Rock Paper Scissors - RevoFun</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/rock-paper-scissors.css">
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="logo">RevoFun</div>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="number-guess.html">Number Guess</a></li>
+            <li><a href="rock-paper-scissors.html" aria-current="page">Rock Paper Scissors</a></li>
+            <li><a href="clicker.html">Clicker Game</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="game-container">
+        <h1>Rock Paper Scissors</h1>
+        
+        <div class="score-board">
+            <div class="score">
+                <p>Player: <span id="player-score">0</span></p>
+                <p>Computer: <span id="computer-score">0</span></p>
+            </div>
+        </div>
+
+        <div class="game-area">
+            <div class="choices">
+                <button class="choice" data-choice="rock">✊</button>
+                <button class="choice" data-choice="paper">✋</button>
+                <button class="choice" data-choice="scissors">✌</button>
+            </div>
+            
+            <div class="result">
+                <div class="hands">
+                    <div class="player-hand">
+                        <h3>Your Choice</h3>
+                        <span id="player-choice">❔</span>
+                    </div>
+                    <div class="vs">VS</div>
+                    <div class="computer-hand">
+                        <h3>Computer's Choice</h3>
+                        <span id="computer-choice">❔</span>
+                    </div>
+                </div>
+                <p id="result-text">Choose your move!</p>
+            </div>
+        </div>
+
+        <button id="reset-btn" class="reset-btn">Reset Game</button>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 RevoFun. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/rock-paper-scissors.js"></script>
+</body>
+</html>

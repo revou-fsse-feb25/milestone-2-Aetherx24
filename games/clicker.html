@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Play the Clicker Game at RevoFun - Test your clicking speed!">
+    <title>Clicker Game - RevoFun</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/clicker.css">
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="logo">RevoFun</div>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="number-guess.html">Number Guess</a></li>
+            <li><a href="rock-paper-scissors.html">Rock Paper Scissors</a></li>
+            <li><a href="clicker.html" aria-current="page">Clicker Game</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="game-container">
+        <h1>Clicker Game</h1>
+        <div class="game-box">
+            <div class="stats">
+                <p>Time: <span id="timer">10.0</span>s</p>
+                <p>Clicks: <span id="click-count">0</span></p>
+                <p>CPS: <span id="cps">0.0</span></p>
+            </div>
+            
+            <button id="click-area" class="click-button">Click Me!</button>
+            
+            <div class="results hidden" id="results">
+                <h2>Results</h2>
+                <p>Total Clicks: <span id="final-clicks">0</span></p>
+                <p>Average CPS: <span id="final-cps">0.0</span></p>
+                <p>Best CPS: <span id="best-cps">0.0</span></p>
+            </div>
+            
+            <button id="start-btn" class="control-btn">Start Game</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 RevoFun. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/clicker.js"></script>
+</body>
+</html>
