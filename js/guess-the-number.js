@@ -1,4 +1,19 @@
+function createFloatingNumbers() {
+    const container = document.getElementById('floating-numbers');
+    const numbers = 50; // Amount of floating numbers
+
+    for (let i = 0; i < numbers; i++) {
+        const number = document.createElement('div');
+        number.className = 'number';
+        number.style.left = `${Math.random() * 100}%`;
+        number.style.animationDelay = `${Math.random() * 15}s`;
+        number.textContent = Math.floor(Math.random() * 100);
+        container.appendChild(number);
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+    createFloatingNumbers();
     const guessInput = document.getElementById('guess-input');
     const guessBtn = document.getElementById('guess-btn');
     const message = document.getElementById('message');

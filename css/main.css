@@ -16,6 +16,9 @@ body {
     background-color: var(--background-color);
     color: var(--text-color);
     line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .main-nav {
@@ -98,5 +101,5 @@ footer {
     text-align: center;
     padding: 2rem;
     background-color: rgba(0,0,0,0.8);
-    margin-top: 2rem;
+    margin-top: auto;
 }
