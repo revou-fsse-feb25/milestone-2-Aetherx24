@@ -123,8 +123,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const winner = scores.player > scores.computer ? 'Player' : 'Computer';
             resultText.textContent = `${winner} wins the series!`;
             disableChoices(true);
+            const score = Math.round((scores.player / scores.maxGames) * 100);
+            leaderboard.addScore(score);
         }
     }
+
+    // Make sure leaderboard is displayed initially
+    leaderboard.displayScores();
 
     function disableChoices(disabled) {
         choices.forEach(choice => {
