@@ -4,14 +4,62 @@ body {
     flex-direction: column;
 }
 
-.game-container {
-    flex: 1;
-    max-width: 800px;
-    margin: 2rem auto;
+.game-layout {
+    display: grid;
+    grid-template-columns: 300px minmax(600px, 1fr) 300px;
+    grid-template-areas: "instructions game leaderboard";
+    gap: 0;
+    max-width: 1400px;
+    margin: 0 auto;
     padding: 2rem;
+    align-items: start;
+}
+
+.game-container {
+    grid-area: game;
+    margin: 0;
+    padding: 0;
     text-align: center;
     position: relative;
     z-index: 1;
+}
+
+.game-box {
+    margin: 0;
+    margin-top: 2rem;
+    border-left: none;
+}
+
+.game-instructions {
+    margin: 0;
+    margin-top: 2rem;
+    padding: 2rem;
+    max-width: 300px;
+    border-right: none;
+    height: fit-content;
+}
+
+.game-instructions {
+    grid-area: instructions;
+    margin: 0;
+    margin-top: 6.5rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(75, 0, 130, 0.3), rgba(138, 43, 226, 0.3));
+    border-radius: 15px 0 0 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-right: none;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    max-width: 300px;
+    height: fit-content;
+}
+
+.game-instructions {
+    padding-right: 2rem;
+}
+
+.game-box, .game-instructions {
+    min-height: 300px;
 }
 
 .game-box {
@@ -19,8 +67,10 @@ body {
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 2rem;
-    border-radius: 15px;
-    margin-top: 2rem;
+    border-radius: 0 15px 15px 0;
+    margin: 0;
+    margin-top: 6.5rem;
+    border-left: none;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
@@ -131,16 +181,21 @@ h1 {
 }
 
 .game-instructions {
-    margin: 2rem auto;
+    grid-area: instructions;
+    margin: 0;
+    margin-right: 0;
+    padding-right: 1rem;
     padding: 2rem;
     width: 100%;
     max-width: 600px;
     background: linear-gradient(135deg, rgba(75, 0, 130, 0.3), rgba(138, 43, 226, 0.3));
-    border-radius: 15px;
+    border-radius: 15px 0 0 15px;
     border: 1px solid rgba(255, 255, 255, 0.2);
+    border-right: none;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(10px);
-    position: relative;
+    position: sticky;
+    top: 100px;
     z-index: 1;
 }
 
@@ -178,4 +233,31 @@ h1 {
     margin-right: 15px;
     font-size: 1.2rem;
     text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+}
+
+.leaderboard {
+    grid-area: leaderboard;
+    margin: 0;
+    margin-left: 2rem;
+    padding: 2rem;
+    position: sticky;
+    top: 100px;
+    max-width: 300px;
+}
+
+@media (max-width: 1200px) {
+    .game-layout {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "game"
+        "instructions"
+        "leaderboard";
+    gap: 1rem;
+    }
+
+    .game-instructions, .leaderboard {
+        position: static;
+        margin: 1rem auto;
+        max-width: 600px;
+    }
 }

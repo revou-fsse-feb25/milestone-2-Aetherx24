@@ -20,21 +20,21 @@
     </nav>
 
     <main class="game-layout">
+        <div class="game-instructions">
+            <h2>How to Play</h2>
+            <ul>
+                <li>Guess a number between 1 and 20</li>
+                <li>You have 5 attempts to find the correct number</li>
+                <li>Watch for hints after each guess</li>
+                <li>Try to achieve the highest score!</li>
+            </ul>
+        </div>
+
         <div class="game-container">
             <h1>Number Guessing Game</h1>
             
-            <div class="game-instructions">
-                <h2>How to Play</h2>
-                <ul>
-                    <li>Guess a number between 1 and 20</li>
-                    <li>You have 5 attempts to find the correct number</li>
-                    <li>Watch for hints after each guess</li>
-                    <li>Try to achieve the highest score!</li>
-                </ul>
-            </div>
-            
             <div class="game-box">
-                <p id="game-info"> Guess a number between 1 and 20. You have 5 attempts!</p>
+                <p id="game-info">Guess a number between 1 and 20. You have 5 attempts!</p>
                 <div id="attempts">Attempts remaining: <span id="attempts-left">5</span></div>
                 <input type="number" id="guess-input" min="1" max="20" placeholder="Enter your guess">
                 <button id="guess-btn">Guess</button>
