@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Make sure leaderboard is displayed initially
+    // Makes sure leaderboard is displayed initially
     leaderboard.displayScores();
 
     function disableChoices(disabled) {
@@ -200,6 +200,5 @@ document.addEventListener('DOMContentLoaded', () => {
             : "Game Over! Computer won the series!";
     }
 
-    // Add this at the end of your DOMContentLoaded callback
     leaderboard.displayScores();
 });

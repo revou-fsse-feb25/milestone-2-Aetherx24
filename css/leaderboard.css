@@ -8,39 +8,58 @@
 }
 
 .leaderboard {
-    background: rgba(225,225,225,0.1);
-    padding: 1.5rem;
-    border-radius: 10px;
+    background: linear-gradient(135deg, rgba(75, 0, 130, 0.3), rgba(138, 43, 226, 0.3));
+    border-radius: 15px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
     height: fit-content;
 }
 
 .leaderboard h2 {
-    color: var(--secondary-color);
-    margin-bottom: 1rem;
+    color: var(--accent-color);
     text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
 }
 
 .leaderboard-list {
     list-style: none;
+    padding: 0;
 }
 
-.leaderboard-item {
+.leaderboard-list li {
+    background: rgba(0, 0, 0, 0.2);
+    margin: 0.8rem 0;
+    padding: 1rem;
+    border-radius: 8px;
     display: flex;
     justify-content: space-between;
-    padding: 0.5rem;
-    border-bottom: 1px solid rgba(225,225,225,0.1);
+    align-items: center;
+    color: var(--text-color);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
 }
 
-.leaderboard-item:last-child {
-    border-bottom: none;
+.leaderboard-list li:hover {
+    transform: translateX(5px);
+    background: rgba(0, 0, 0, 0.3);
 }
 
-.player-score {
+.leaderboard-list .score {
     color: var(--secondary-color);
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(252, 63, 148, 0.3);
 }
 
 @media (max-width: 768px) {
     .game-layout {
         grid-template-columns: 1fr;
+    }
+    
+    .leaderboard {
+        margin-top: 2rem;
     }
 }

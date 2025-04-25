@@ -1,15 +1,106 @@
 .game-container {
     max-width: 800px;
-    margin: 2rem auto;
+    margin: 0;
     padding: 2rem;
     text-align: center;
+    height: fit-content;
+}
+
+.game-layout {
+    display: grid;
+    grid-template-columns: 300px minmax(600px, 1fr) 300px;
+    grid-template-areas: "instructions game leaderboard";
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+    align-items: start;
+}
+
+
+.game-container {
+    grid-area: game;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    min-width: 0;
+}
+
+
+.game-instructions {
+    grid-area: instructions;
+    margin: 0;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(75, 0, 130, 0.2), rgba(138, 43, 226, 0.2));
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 100px;
+    max-width: 300px;
+}
+
+
+.leaderboard {
+    grid-area: leaderboard;
+    margin: 0;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(75, 0, 130, 0.2), rgba(138, 43, 226, 0.2));
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 100px;
+    max-width: 300px;
 }
 
 .game-box {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 2rem;
-    border-radius: 10px;
-    margin-top: 2rem;
+    margin-top: 0;
+}
+
+h1 {
+    margin: 0 0 1.5rem 0;
+}
+
+@media (max-width: 1200px) {
+    .game-layout {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "game"
+            "instructions"
+            "leaderboard";
+        gap: 1rem;
+    }
+
+    .game-instructions, .leaderboard {
+        position: static;
+        margin: 1rem auto;
+        max-width: 600px;
+    }
+
+    .game-container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+}
+
+.game-box {
+    background: linear-gradient(135deg, rgba(107, 47, 217, 0.2), rgba(255, 105, 180, 0.2));
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 15px;
+    margin-top: 1rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    color: var(--accent-color);
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .stats {
@@ -18,6 +109,8 @@
     gap: 2rem;
     margin-bottom: 2rem;
     font-size: 1.2rem;
+    color: var(--accent-color);
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
 }
 
 .click-button {
@@ -25,53 +118,123 @@
     height: 200px;
     border-radius: 50%;
     border: none;
-    background: var(--secondary-color);
-    color: var(--background-color);
+    background: linear-gradient(135deg, var(--secondary-color), var(--nebula-purple));
+    color: var(--text-color);
     font-size: 1.5rem;
     cursor: pointer;
-    transition: transform 0.1s;
+    transition: all 0.3s ease;
     margin: 2rem 0;
+    box-shadow: 0 0 20px rgba(252, 63, 148, 0.3);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.click-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(252, 63, 148, 0.5);
 }
 
 .click-button:active {
     transform: scale(0.95);
 }
 
-.click-button.disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
 .results {
     margin: 2rem 0;
-    padding: 1rem;
-    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    background: linear-gradient(135deg, rgba(65, 105, 225, 0.1), rgba(155, 77, 202, 0.1));
     border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
 .results h2 {
-    color: var(--secondary-color);
+    color: var(--accent-color);
     margin-bottom: 1rem;
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
 }
 
 .control-btn {
     padding: 0.8rem 1.5rem;
-    background-color: var(--secondary-color);
-    color: var(--background-color);
+    background: linear-gradient(135deg, var(--secondary-color), var(--nebula-purple));
+    color: var(--text-color);
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
     font-size: 1.1rem;
+    box-shadow: 0 4px 15px rgba(252, 63, 148, 0.2);
 }
 
 .control-btn:hover {
-    background-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(252, 63, 148, 0.3);
+}
+
+.game-instructions {
+    margin: 0;
+    padding: 2rem;
+    max-width: 600px;
+    background: linear-gradient(135deg, rgba(75, 0, 130, 0.2), rgba(138, 43, 226, 0.2));
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    height: fit-content;
+}
+
+.game-instructions h2 {
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    text-align: center;
+}
+
+.game-instructions ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.game-instructions li {
+    margin: 1rem 0;
+    padding: 0.5rem;
     color: var(--text-color);
+    opacity: 0.9;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+.game-instructions li::before {
+    content: '★';
+    color: var(--accent-color);
+    margin-right: 15px;
+    font-size: 1.2rem;
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
 }
 
 .hidden {
     display: none;
+}
+
+.leaderboard {
+    background: linear-gradient(135deg, rgba(75, 0, 130, 0.2), rgba(138, 43, 226, 0.2));
+    border-radius: 15px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    height: fit-content;
+}
+
+.leaderboard h2 {
+    color: var(--accent-color);
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    margin-bottom: 1.5rem;
 }
 
 @media (max-width: 600px) {
