@@ -1,12 +1,12 @@
 # RevoFun Gaming Website
 Link: https://revou-fsse-feb25.github.io/milestone-2-Aetherx24/
 
-A collection of fun browser-based games including Number Guessing, Rock Paper Scissors, and a Clicker Game. 
+A collection of fun browser-based games including Guess the Number, Rock Paper Scissors, and a Clicker Game. 
 
 ## Games Available
 
 # Guess the Number
-Test your intuition by guessing a number between 1 and 100. You have 5 attempts to find the correct number, with hints provided after each guess. 
+Test your intuition by guessing a number between 1 and 20. You have 5 attempts to find the correct number, with hints provided after each guess. 
 
 # Rock, Paper, Scissors.
 Challenge the computer in this classic game!Choose between rock (✊), paper (✋), or scissors (✌) and try to beat the computer's choice. 
