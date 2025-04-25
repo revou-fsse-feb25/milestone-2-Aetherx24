@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const resetBtn = document.getElementById('reset-btn');
     const gamesLimit = document.getElementById('game-limit');
     const gamesLeft = document.getElementById('games-left');
+    const leaderboard = new Leaderboard('rockPaperScissors');
 
     // Add score tracking variables
     let totalGames = parseInt(localStorage.getItem('rpsGames')) || 0;
@@ -175,4 +176,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
         
     });
+
+    function endGame() {
+        const playerWins = parseInt(playerScore.textContent);
+        const computerWins = parseInt(computerScore.textContent);
+        const totalGames = parseInt(gameLimit.value);
+        
+        // Calculate score based on win ratio and game length
+        const score = Math.round((playerWins / totalGames) * 100);
+        
+        // Add score to leaderboard
+        leaderboard.addScore(score);
+        
+        // Disable choices
+        choices.forEach(choice => choice.disabled = true);
+        resultText.textContent = playerWins > computerWins 
+            ? "Congratulations! You won the series!" 
+            : "Game Over! Computer won the series!";
+    }
+
+    // Add this at the end of your DOMContentLoaded callback
+    leaderboard.displayScores();
 });

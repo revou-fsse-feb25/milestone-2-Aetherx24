@@ -7,6 +7,7 @@
     <title>Clicker Game - RevoFun</title>
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/clicker.css">
+    <link rel="stylesheet" href="../css/leaderboard.css">
 </head>
 <body>
     <nav class="main-nav">
@@ -18,25 +19,34 @@
         </ul>
     </nav>
 
-    <main class="game-container">
-        <h1>Clicker Game</h1>
-        <div class="game-box">
-            <div class="stats">
-                <p>Time: <span id="timer">10.0</span>s</p>
-                <p>Clicks: <span id="click-count">0</span></p>
-                <p>CPS: <span id="cps">0.0</span></p>
+    <main class="game-layout">
+        <div class="game-container">
+            <h1>Clicker Game</h1>
+            <div class="game-box">
+                <div class="stats">
+                    <p>Time: <span id="timer">10.0</span>s</p>
+                    <p>Clicks: <span id="click-count">0</span></p>
+                    <p>CPS: <span id="cps">0.0</span></p>
+                </div>
+                
+                <button id="click-area" class="click-button">Click Me!</button>
+                
+                <div class="results hidden" id="results">
+                    <h2>Results</h2>
+                    <p>Total Clicks: <span id="final-clicks">0</span></p>
+                    <p>Average CPS: <span id="final-cps">0.0</span></p>
+                    <p>Best CPS: <span id="best-cps">0.0</span></p>
+                </div>
+                
+                <button id="start-btn" class="control-btn">Start Game</button>
             </div>
-            
-            <button id="click-area" class="click-button">Click Me!</button>
-            
-            <div class="results hidden" id="results">
-                <h2>Results</h2>
-                <p>Total Clicks: <span id="final-clicks">0</span></p>
-                <p>Average CPS: <span id="final-cps">0.0</span></p>
-                <p>Best CPS: <span id="best-cps">0.0</span></p>
-            </div>
-            
-            <button id="start-btn" class="control-btn">Start Game</button>
+        </div>
+        
+        <div class="leaderboard">
+            <h2>Top Scores</h2>
+            <ul class="leaderboard-list" id="leaderboard-list">
+                <!-- Leaderboard entries will be added here -->
+            </ul>
         </div>
     </main>
 
@@ -44,6 +54,7 @@
         <p>&copy; 2024 RevoFun. All rights reserved.</p>
     </footer>
 
+    <script src="../js/leaderboard.js"></script>
     <script src="../js/clicker.js"></script>
 </body>
 </html>

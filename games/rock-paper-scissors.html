@@ -7,6 +7,7 @@
     <title>Rock Paper Scissors - RevoFun</title>
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/rock-paper-scissors.css">
+    <link rel="stylesheet" href="../css/leaderboard.css">
 </head>
 <body>
     <nav class="main-nav">
@@ -18,55 +19,65 @@
         </ul>
     </nav>
 
-    <main class="game-container">
-        <h1>Rock Paper Scissors</h1>
+    <main class="game-layout">
+        <div class="game-container">
+            <h1>Rock Paper Scissors</h1>
         
-        <div class="score-board">
-            <div class="game-settings">
-                <label for="game-limit">Best of:</label>
-                <select id="game-limit">
-                    <option value="3">3 Games</option>
-                    <option value="5">5 Games</option>
-                    <option value="7">7 Games</option>
-                </select>
-            </div>
-            <div class="score">
-                <p>Player: <span id="player-score">0</span></p>
-                <p>Computer: <span id="computer-score">0</span></p>
-                <p>Games Left: <span id="games-left">3</span></p>
-            </div>
-        </div>
-
-        <div class="game-area">
-            <div class="choices">
-                <button class="choice" data-choice="rock">✊</button>
-                <button class="choice" data-choice="paper">✋</button>
-                <button class="choice" data-choice="scissors">✌</button>
-            </div>
-            
-            <div class="result">
-                <div class="hands">
-                    <div class="player-hand">
-                        <h3>Your Choice</h3>
-                        <span id="player-choice">❔</span>
-                    </div>
-                    <div class="vs">VS</div>
-                    <div class="computer-hand">
-                        <h3>Computer's Choice</h3>
-                        <span id="computer-choice">❔</span>
-                    </div>
+            <div class="score-board">
+                <div class="game-settings">
+                    <label for="game-limit">Best of:</label>
+                    <select id="game-limit">
+                        <option value="3">3 Games</option>
+                        <option value="5">5 Games</option>
+                        <option value="7">7 Games</option>
+                    </select>
                 </div>
-                <p id="result-text">Choose your move!</p>
+                <div class="score">
+                    <p>Player: <span id="player-score">0</span></p>
+                    <p>Computer: <span id="computer-score">0</span></p>
+                    <p>Games Left: <span id="games-left">3</span></p>
+                </div>
             </div>
+
+            <div class="game-area">
+                <div class="choices">
+                    <button class="choice" data-choice="rock">✊</button>
+                    <button class="choice" data-choice="paper">✋</button>
+                    <button class="choice" data-choice="scissors">✌</button>
+                </div>
+                
+                <div class="result">
+                    <div class="hands">
+                        <div class="player-hand">
+                            <h3>Your Choice</h3>
+                            <span id="player-choice">❔</span>
+                        </div>
+                        <div class="vs">VS</div>
+                        <div class="computer-hand">
+                            <h3>Computer's Choice</h3>
+                            <span id="computer-choice">❔</span>
+                        </div>
+                    </div>
+                    <p id="result-text">Choose your move!</p>
+                </div>
+            </div>
+
+            <button id="reset-btn" class="reset-btn">Reset Game</button>
         </div>
 
-        <button id="reset-btn" class="reset-btn">Reset Game</button>
+        <div class="leaderboard">
+            <h2>Top Scores</h2>
+            <ul class="leaderboard-list" id="leaderboard-list">
+                <!-- Leaderboard entries will be added here -->
+            </ul>
+        </div>
     </main>
 
     <footer>
         <p>&copy; 2024 RevoFun. All rights reserved.</p>
     </footer>
 
+    <script src="../js/leaderboard.js"></script>
     <script src="../js/rock-paper-scissors.js"></script>
 </body>
 </html>

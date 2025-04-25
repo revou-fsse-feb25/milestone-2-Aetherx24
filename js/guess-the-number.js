@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const message = document.getElementById('message');
     const attemptsLeft = document.getElementById('attempts-left');
     const restartBtn = document.getElementById('restart-btn');
+    const leaderboard = new Leaderboard('guessNumber');
     
     let secretNumber;
     let attempts;
@@ -72,6 +73,9 @@ document.addEventListener('DOMContentLoaded', () => {
         restartBtn.classList.remove('hidden');
         message.style.color = won ? 'var(--secondary-color)' : '#ff4444';
         updateScores(won);
+
+        const score = won ? (attempts + 1) * 20 : 0;
+        leaderboard.addScore(score);
     }
 
     guessBtn.addEventListener('click', () => {
@@ -105,6 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     restartBtn.addEventListener('click', initializeGame);
 
+    leaderboard.displayScores();
     // Start the game
     initializeGame();
 });

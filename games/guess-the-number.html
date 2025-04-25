@@ -6,6 +6,7 @@
     <title>Number Guessing Game - RevoFun</title>
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/guess-the-number.css">
+    <link rel="stylesheet" href="../css/leaderboard.css">
 </head>
 <body>
     <div class="floating-numbers" id="floating-numbers"></div>
@@ -18,15 +19,24 @@
         </ul>
     </nav>
 
-    <main class="game-container">
-        <h1> Guess the Number! </h1>
-        <div class="game-box">
-            <p id="game-info"> Guess a number between 1 and 20. You have 5 attempts!</p>
-            <div id="attempts">Attempts remaining: <span id="attempts-left">5</span></div>
-            <input type="number" id="guess-input" min="1" max="20" placeholder="Enter your guess">
-            <button id="guess-btn">Guess</button>
-            <p id="message"></p>
-            <button id="restart-btn" class="hidden">Retry</button>
+    <main class="game-layout">
+        <div class="game-container">
+            <h1> Guess the Number! </h1>
+            <div class="game-box">
+                <p id="game-info"> Guess a number between 1 and 20. You have 5 attempts!</p>
+                <div id="attempts">Attempts remaining: <span id="attempts-left">5</span></div>
+                <input type="number" id="guess-input" min="1" max="20" placeholder="Enter your guess">
+                <button id="guess-btn">Guess</button>
+                <p id="message"></p>
+                <button id="restart-btn" class="hidden">Retry</button>
+            </div>
+        </div>
+        
+        <div class="leaderboard">
+            <h2>Top Scores</h2>
+            <ul class="leaderboard-list" id="leaderboard-list">
+                <!-- Leaderboard entries will be added here -->
+            </ul>
         </div>
     </main>
 
@@ -34,6 +44,7 @@
         <p>&copy; 2024 RevoFun. All rights reserved.</p>
     </footer>
 
+    <script src="../js/leaderboard.js"></script>
     <script src="../js/guess-the-number.js"></script>
 
 </body>

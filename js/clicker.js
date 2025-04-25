@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const finalClicks = document.getElementById('final-clicks');
     const finalCps = document.getElementById('final-cps');
     const bestCps = document.getElementById('best-cps');
+    const leaderboard = new Leaderboard('clicker');
 
     let clicks = 0;
     let timeLeft = 10.0;
@@ -55,6 +56,8 @@ document.addEventListener('DOMContentLoaded', () => {
         bestCps.textContent = bestCpsScore.toFixed(1);
         
         results.classList.remove('hidden');
+
+        leaderboard.addScore(finalCpsValue);
     }
 
     clickArea.addEventListener('click', () => {
@@ -71,4 +74,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         startGame();
     });
+
+    leaderboard.displayScores();
 });
