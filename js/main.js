@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Play button functionality
+    // play button functionality
     const playButtons = document.querySelectorAll('.play-btn');
 
     playButtons.forEach(button => {
@@ -8,17 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // username/nickname system
-    let username = localStorage.getItem('revofun_username');
-
-    if (!username) {
-        promptUsername();
-    } else {
-        displayUsername();
-    }
-
-    function promptUsername() {
-        const name = prompt('Please enter your nickname for the leaderboarc:', '');
+    // Prompt Username creation
+    window.promptUsername = function() {
+        const name = prompt('Please enter your nickname for the leaderboard:', '');
         if (name && name.trim()) {
             username = name.trim();
             localStorage.setItem('revofun_username', username);
@@ -32,12 +24,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function displayUsername() {
         const nav = document.querySelector('.nav-links');
+        // Remove existing username display if any
+        const existingUser = nav.querySelector('.username-item');
+        if (existingUser) {
+            existingUser.remove();
+        }
+        
         const userDiv = document.createElement('li');
+        userDiv.className = 'username-item';
         userDiv.innerHTML = `
-        <span class="username">${username}</span>
-        <button class="change-name" onclick="promptUsername()">Change</button>
+            <span class="username">${username}</span>
+            <button class="change-name" onclick="promptUsername()">Change</button>
         `;
-        nav.appendChild(userDiv)
+        nav.appendChild(userDiv);
+    }
+
+    // Initialize username
+    let username = localStorage.getItem('revofun_username');
+    if (!username) {
+        promptUsername();
+    } else {
+        displayUsername();
     }
 });
 
